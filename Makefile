@@ -51,7 +51,7 @@ ci:
 	echo Installing Coffeescript
 	npm install -g coffee-script
 	echo compiling
-	coffee -c app.coffee -o compile/app.js
+	coffee -o compiled -c  app.coffee
 #.PHONY test
 
 #.PHONY test
