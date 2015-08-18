@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  div(class="container pull-middle")
+      form(class="form-signin small middle pad-middle-l" method="post" action="/login")
+        h2(class="form-signin-heading pull-middle" id="head")="Hello, sign in here"
+        label(class="sr-only pull-middle" for="inputEmail")="Email address"
+        input(class="form-control small pull-middle" id="inputEmail" autofocus="" required="" type="text" placeholder="Username" name="username")
+        label(class="sr-only pull-middle" for="inputPassword")="Password"
+       
+        input(class="form-control small pull-middle" id="inputPassword" required="" type="password" placeholder="Password" name="password")
+        
+        button(class="btn btn-lg btn-primary btn-block pull-middle" type="submit")="Sign in"
+      
+      
+      
+       
+      span(class="glyphicon glyphicon-dashboard")
+     h5(class="white middle pad-little-top")=" Admin? Login"
+      a(href="/admin")="Here"
+      
+      h3(class="blue")="Connections | webOS"
+
+    

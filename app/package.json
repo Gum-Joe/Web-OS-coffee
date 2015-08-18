@@ -1,0 +1,22 @@
+{
+  "name": "web-os-app",
+  "version": "1.0.0",
+  "description": "The command Line app for web-os",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gum-Joe/Web-OS.git"
+  },
+  "keywords": [
+    "Web-OS"
+  ],
+  "author": "Gum-Joe",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Gum-Joe/Web-OS/issues"
+  },
+  "homepage": "https://github.com/Gum-Joe/Web-OS#readme"
+}

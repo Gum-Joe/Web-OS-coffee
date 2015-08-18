@@ -1,0 +1,96 @@
+<!--A simple web-kernal config-->
+<kernal>
+  <properties>
+    <name>Web-OS</name>
+    <author>Gum-Joe</author>
+    <private>true</private>
+    <type>server</type>
+    <language>node_js</language>
+    <kernaldir>./</kernaldir>
+    <waDir>./os</waDir>
+    <modulesDir>$kernal/modules</modules>
+  </properties>
+  <build>
+    <use>npm</use>
+    <use>npmGloabal</use>
+    <install>
+      <globalDependencies>
+        <npm>mocha</npm>
+      </globalDependencies>
+      <local>
+        <npm>npm install</npm>
+      </local>
+    </install>
+    <tests>
+      <test>mocha</test>
+    </tests>
+    <directions>
+      <direction id=1>install</direction>
+      <direction id=2>test</direction>
+    </directions>
+  </build>
+  <drives>
+    <mounts>
+      <mountRoot>./mounts</mount>
+      <mount>
+        <type>USB</type>
+        <drive>F:</name>
+        <name>$MOUNT_CONFIG_XML:name</name>
+        <dir>mount01</dir>
+      </mount>
+      <mount>
+        <type>USB</type>
+        <drive>E:</name>
+        <name>$MOUNT_CONFIG_XML:name</name>
+        <dir>mount02</dir>
+      </mount>
+      <mount>
+        <type>WAID</type>
+        <drive>G:</name>
+        <name>$MOUNT_CONFIG_XML:name</name>
+        <dir>WAinstallDrive</dir>
+      </mount>
+    </mounts>
+  </drives>
+  <boot>
+    <allowBMcustomise>true</allowBMcustomise>
+    <before>
+      <use>mongodb</use>
+      <use>sh</use>
+      <start>mongod</start>
+    </before>
+    <!--bash defaults to sh/git-bash or other terminal-->
+    <terminals>
+      <linux>sh</linux>
+      <windows>cmd</windows>
+    </terminals>
+    <start>npm start</start>
+  </boot>
+  <vars>
+    <cmd>C:\WINDOWS\cmd.exe</cmd>
+    <var>
+      <name>kernalmods</name>
+      <value>$kernal/mods</value>
+    </var>
+    <var>
+      <name>mongodb</name>
+      <value>$kernalmods/mongodb.configure</value>
+    </var>
+  </vars>
+  <!--For linux, sudo apt-get install will be ran. For windows, the progarm will be downloaded and C:\windows\System32\msiexec {progarm} and the extract command-->
+  <packages>
+    <!--Windows only-->
+    <installDir>./packages</installDir>
+    <downloadDir>$tmp/download</downloadDir>
+    <deleteAfterInstall>true</deleteAfterInstall>
+    <package>
+      <!--For linux-->
+      <name>mongodb-org</name>
+      <repo>http://repo.mongodb.org/apt</repo>
+      <!--In case the system does not have the repo registered, execute the register command (Recommened ti be in a .sh script) such as the command to get ready to get mono-->
+      <beforeExtraCommand>sh scripts/prepareMongodb.sh</extraCommand>
+      <!--For windows-->
+      <dowloadLink>https://fastdl.mongodb.org/win32/mongodb-win32-x86_64-2008plus-ssl-3.0.5-signed.msi?_ga=1.79251604.1425317820.1438110009</dowloadLink>
+    </package>
+  </packages>
+</kernal>

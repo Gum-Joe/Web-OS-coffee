@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Dashboard | Web-OS</title>
+		<link rel="stylesheet" href="../bootstrap/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" href="../bootstrap/dist/css/bootstrap.css.map">
+		<link rel="stylesheet" href="../bootstrap/dist/css/bootstrap.css">
+		<link rel="stylesheet" href="../bootstrap/dist/css/bootstrap-theme.css.map">
+		<link rel="stylesheet" href="../bootstrap/dist/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="../bootstrap/dist/css/bootstrap-theme.css">
+        <link rel="stylesheet" href="css/admin.css">
+        
+	</head>
+	<body class="web-os-back">
+		    <nav class="navbar navbar-inverse navbar-fixed-top black-back">
+      <div class="container-fluid black-back">
+        <div class="navbar-header">
+          <button class="navbar-toggle collapsed" aria-expanded="false" aria-controls="navbar" type="button" data-toggle="collapse" data-target="#navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Web-OS</a>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar">
+          <ul class="nav navbar-nav navbar-middle">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Plugins</a></li>
+            <li><a href="#">Help</a></li>
+          </ul>
+          <!--<form class="navbar-form navbar-right">
+            <input class="form-control" type="text" placeholder="Search...">
+          </form>-->
+        </div>
+      </div>
+    </nav>
+    
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar pad-small-top-side">
+          <ul class="nav nav-pills nav-stacked nav-pills-stacked-example">
+            <li class="active" role="presentation"><a href="#">Overview</a></li>
+            <li><a href="#">Reports</a></li>
+            <li><a href="#">Analytics</a></li>
+            <li><a href="#">Export</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main minus">
+          <h1 class="page-header">Welcome Back, <%=user%></h1>
+
+          <div class="row placeholders">
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <!--<img class="img-responsive" alt="Generic placeholder thumbnail" data-src="holder.js/200x200/auto/sky">-->
+                  <div class="alert alert-warning middle" role="alert"><h1 class="middle minus-alert"><%=users%></h1>Users</div>
+                    
+              <div class="alert alert-info middle" role="alert"><h1 class="middle minus-alert"><%=sessions%></h1>Active Users</div>
+               
+            </div>
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <div class="alert alert-success middle" role="alert"><h1 class="middle minus-alert"><%=plugins%></h1>Plugins installed</div>
+            </div>
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <div class="alert alert-info middle" role="alert"><h1 class="middle minus-alert"><%=plugins%></h1>Plugins active</div>
+            </div>
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <img class="img-responsive" alt="Generic placeholder thumbnail" data-src="holder.js/200x200/auto/vine">
+              <h4>Label</h4>
+              <span class="text-muted">Something else</span>
+            </div>
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+
+ 
+	</body>
+	<script src="../jquery/dist/jquery.js"></script>
+	<script src="../bootstrap/dist/js/bootstrap.js"></script>
+</html>

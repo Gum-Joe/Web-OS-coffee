@@ -1,0 +1,6 @@
+echo Compiling apps...
+echo Compiling libs
+xbuild console-app-libs.csproj
+echo Compiling app...
+xbuild console-app.csproj
+echo Done!

@@ -1,0 +1,24 @@
+@import "float.css";
+
+@font-face {
+     font-family: FiraSans-UltraLight;
+     src: url(fonts/fira-sans/FiraSans-UltraLight.otf);
+}
+
+
+.web-os-back,html {
+  background-image: url("img/nav-back-two.png");
+  color: light-blue;
+}
+
+#head {
+  font-family: FiraSans-UltraLight;
+}
+
+.blue {
+  
+}
+
+.pad-top-middle {
+  padding-top: 3cm;
+}

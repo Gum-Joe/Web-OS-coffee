@@ -1,0 +1,31 @@
+{
+  "name": "console-app-nodejs",
+  "version": "1.0.0",
+  "description": "console-app-nodejs",
+  "main": "app.js",
+  "author": "hp1",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gum-Joe/Web-OS.git"
+  },
+  "keywords": [
+    "web-os",
+    "web",
+    "OS",
+    "web-OS",
+    "connections",
+    "console",
+    "managment"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Gum-Joe/Web-OS/issues"
+  },
+  "homepage": "https://github.com/Gum-Joe/Web-OS#readme",
+  "dependencies": {
+    "mongoose": "^4.0.7"
+  }
+}
