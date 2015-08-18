@@ -1,4 +1,4 @@
-# here is the heroku makefile
+# here is the makefile
 run:
 	echo Installing bower modules; \
 	echo Installing bower; \
@@ -47,6 +47,11 @@ test-coveralls:
 		cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js --verbose
 
 
+ci:
+	echo Installing Coffeescript
+	npm install -g coffee-script
+	echo compiling
+	coffee -c app.coffee -o compile/app.js
 #.PHONY test
 
 #.PHONY test
