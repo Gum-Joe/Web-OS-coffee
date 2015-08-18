@@ -24,7 +24,7 @@
   "bugs": {
     "url": "https://github.com/Gum-Joe/Web-OS-coffee/issues"
   },
-  "homepage": "https://github.com/Gum-Joe/Web-OS-coffee"
+  "homepage": "https://github.com/Gum-Joe/Web-OS-coffee",
   "dependencies": {
     "bcryptjs": "^2.2.0",
     "body-parser": "^1.13.2",

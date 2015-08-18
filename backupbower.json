@@ -1,20 +1,20 @@
 {
-  "name": "Web-OS-coffee",
+  "name": "Web-OS",
   "version": "1.0.0",
-  "homepage": "https://github.com/Gum-Joe/Web-OS-coffee",
+  "homepage": "https://github.com/Gum-Joe/Web-OS",
   "authors": [
-    "Gum-Joe <kishansambhi@hotmail.co.uk>"
+    "Gum-Joe"
   ],
-  "description": "The Web-OS framwork, in coffee script",
-  "main": "app.coffee",
+  "description": "A web-OS",
+  "main": "app.js",
   "moduleType": [
-    "globals",
     "node"
   ],
   "keywords": [
-    "web-os",
-    "coffee",
-    "os"
+    "web-Os",
+    "OS",
+    "Connections",
+    "Login"
   ],
   "license": "MIT",
   "ignore": [
