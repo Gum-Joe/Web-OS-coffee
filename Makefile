@@ -52,6 +52,12 @@ ci:
 	npm install -g coffee-script
 	echo compiling
 	coffee -o compiled -c  app.coffee
+	coffee -o compiled/libs -c libs/*.coffee
+
+pi:
+	echo compiling
+	coffee -o compiled -c  app.coffee
+	coffee -o compiled/libs -c libs/*.coffee
 #.PHONY test
 
 #.PHONY test
