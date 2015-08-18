@@ -13,9 +13,9 @@ passportlocal = require 'passport-local'
 passporthttp = require 'passport-http'
 
 mongoose = require 'mongoose'
-#MongoClient = require 'mongodb'.MongoClient  
+MongoClient = require 'mongodb' .MongoClient  
 assert = require 'assert'
-#ObjectId = require 'mongodb'.ObjectID  
+ObjectId = require 'mongodb'.ObjectID  
 
 connect = require "./libs/connect.js"
 passportconfig = require "./libs/passport.js"
@@ -140,4 +140,4 @@ app.use((err, req, res, next) ->
      message: err.message,
      error: {}
   })
-)  
+)
