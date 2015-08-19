@@ -78,7 +78,7 @@ routes-in:
 	coffee -w -o routes -c routes/*.coffee
 
 clean:
-	rm -rfv libs/*.js routes/*.js app.js
+	rm -rfv libs/*.js libs/*/*.js libs/*/*/*.js routes/*.js app.js
 
 #.PHONY test
 
