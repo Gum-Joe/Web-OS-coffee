@@ -31,7 +31,7 @@ getdocs = (x) ->
     counts = count
 )
 
-console.log(counts)
+console.log(getdocs("ok"))
 
 router.use('passportconfig', passportconfig)
 

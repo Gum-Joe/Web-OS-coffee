@@ -38,6 +38,12 @@ ci:
 	coffee -o compiled/libs -c libs/*.coffee
 	coffee -o compiled/routes -c routes/*.coffee
 	cake build
+	echo install modules
+	cp -v package.json compiled/package.json
+	cd compiled
+	npm install
+	cd ..
+
 
 pi:
 	echo compiling
@@ -45,6 +51,12 @@ pi:
 	coffee -o compiled/libs -c libs/*.coffee
 	coffee -o compiled/routes -c routes/*.coffee
 	cake build
+	echo installing modules
+	cp -v package.json compiled/package.json
+	cd compiled
+	npm install
+	cd ..
+
 
 libs-in:
 	coffee -w -o compiled/libs -c libs/*.coffee
