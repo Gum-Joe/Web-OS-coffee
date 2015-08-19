@@ -23,7 +23,7 @@ userSchema = new mongoose.Schema({
 
 exits = false
 Suser = mongoose.model('usersch', userSchema)
-counts = getdocs("ok")
+#counts = getdocs("ok")
 
 getdocs = (x) ->
   Suser.count({}, (err, count) ->
