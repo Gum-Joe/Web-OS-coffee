@@ -56,3 +56,5 @@ libs/*.js
 libs/*/*.js
 libs/*/*/*.js
 routes/*.js
+views/css/*.css
+views/admin/css/*.css
