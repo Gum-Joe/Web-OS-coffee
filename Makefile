@@ -58,6 +58,7 @@ pi:
 	echo compiling
 	coffee -o compiled -c  app.coffee
 	coffee -o compiled/libs -c libs/*.coffee
+	coffee -o compiled/routes -c routes/*.coffee
 #.PHONY test
 
 #.PHONY test
