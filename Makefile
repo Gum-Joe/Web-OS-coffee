@@ -31,29 +31,48 @@ test-coveralls:
 
 
 ci:
-	echo Installing Coffeescript
-	npm install -g coffee-script
-	echo compiling
-	coffee -o ./ -c app.coffee
-	coffee -o libs/setup libs/setup/instances/*.coffee
-	coffee -o libs/setup libs/setup/*.coffee
-	coffee -o libs/error libs/error/*.coffee
-	coffee -o libs libs/*.coffee
-	coffee -o routes routes/*.coffee
+	echo Installing Coffeescript; \
+	npm install -g coffee-script; \
+	echo compiling; \
+	coffee -o ./ -c app.coffee; \
+	coffee -o libs/setup libs/setup/instances/*.coffee; \
+	coffee -o libs/setup libs/setup/*.coffee; \
+	coffee -o libs/error libs/error/*.coffee; \
+	coffee -o libs libs/*.coffee; \
+	coffee -o routes routes/*.coffee; \
 	#cake build
+	# Compile css
+	npm install -g less; \
+	echo Compiling CSS; \
+	cd views/css; \
+	lessc float.less > float.css; \
+	lessc web-os.less > web-os.css; \
+	cd ../admin/css; \
+	lessc float.less > float.css; \
+	lessc admin.less > admin.css; \
 
 
 pi:
-	echo compiling
-	$(MAKE) clean
-	coffee -o ./ -c app.coffee
-	coffee -o libs/setup libs/setup/instances/*.coffee
-	coffee -o libs/setup libs/setup/*.coffee
-	coffee -o libs/error libs/error/*.coffee
-	coffee -o libs libs/*.coffee
-	coffee -o routes routes/*.coffee
+	echo compiling; \
+	$(MAKE) clean; \
+	coffee -o ./ -c app.coffee; \
+	coffee -o libs/setup libs/setup/instances/*.coffee; \
+	coffee -o libs/setup libs/setup/*.coffee; \
+	coffee -o libs/error libs/error/*.coffee; \
+	coffee -o libs libs/*.coffee; \
+	coffee -o routes routes/*.coffee; \
 	#cake build
 	#Compile css
+	$(MAKE) css; \
+
+css:
+	echo Compiling css
+	cd views/css; \
+	lessc float.less > float.css; \
+	lessc web-os.less > web-os.css; \
+	cd ../admin/css; \
+	lessc float.less > float.css; \
+	lessc admin.less > admin.css; \
 	
 	
 
@@ -78,7 +97,7 @@ routes-in:
 	coffee -w -o routes -c routes/*.coffee
 
 clean:
-	rm -rfv libs/*.js libs/*/*.js libs/*/*/*.js routes/*.js app.js
+	rm -rfv libs/*.js libs/*/*.js libs/*/*/*.js routes/*.js app.js;
 
 #.PHONY test
 
