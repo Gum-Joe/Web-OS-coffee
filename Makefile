@@ -34,40 +34,51 @@ ci:
 	echo Installing Coffeescript
 	npm install -g coffee-script
 	echo compiling
-	coffee -o compiled -c  app.coffee
-	coffee -o compiled/libs -c libs/*.coffee
-	coffee -o compiled/routes -c routes/*.coffee
-	cake build
-	echo install modules
-	cp -v package.json compiled/package.json
-	cd compiled
-	npm install
-	cd ..
+	coffee -o ./ -c app.coffee
+	coffee -o libs/setup libs/setup/instances/*.coffee
+	coffee -o libs/setup libs/setup/*.coffee
+	coffee -o libs/error libs/error/*.coffee
+	coffee -o libs libs/*.coffee
+	coffee -o routes routes/*.coffee
+	#cake build
 
 
 pi:
 	echo compiling
-	coffee -o compiled -c  app.coffee
-	coffee -o compiled/libs -c libs/*.coffee
-	coffee -o compiled/routes -c routes/*.coffee
-	cake build
-	echo installing modules
-	cp -v package.json compiled/package.json
-	cd compiled
-	npm install
-	cd ..
-
+	$(MAKE) clean
+	coffee -o ./ -c app.coffee
+	coffee -o libs/setup libs/setup/instances/*.coffee
+	coffee -o libs/setup libs/setup/*.coffee
+	coffee -o libs/error libs/error/*.coffee
+	coffee -o libs libs/*.coffee
+	coffee -o routes routes/*.coffee
+	#cake build
+	#Compile css
+	
+	
 
 libs-in:
-	coffee -w -o compiled/libs -c libs/*.coffee
+	coffee -w -o libs -c libs/*.coffee
+
+set-in:
+	coffee -w -o libs/setup -c libs/setup/*.coffee
+
+set-ins-in:
+	coffee -w -o libs/setup/instances -c libs/setup/instances/*.coffee
+
+err-in:
+	coffee -w -o libs/error -c libs/error/*.coffee
 
 app-in:
 	echo compiling
-	coffee -w -o compiled -c  app.coffee
+	coffee -w -o ./ -c  app.coffee
 
 routes-in:
 	echo compiling
-	coffee -w -o compiled/routes -c routes/*.coffee
+	coffee -w -o routes -c routes/*.coffee
+
+clean:
+	rm -rfv libs/*.js routes/*.js app.js
 
 #.PHONY test
 

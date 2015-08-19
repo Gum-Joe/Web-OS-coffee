@@ -5,24 +5,27 @@ path = require('path')
 favicon = require('serve-favicon')
 logger = require('morgan')
 cookieParser = require('cookie-parser')
+clicolour = require('cli-color')
 
 # passport for login
 passport = require('passport')
 passportlocal = require('passport-local')
 passporthttp = require('passport-http')
 
+#console.log(clicolour.yellowBright("Web-OS ran into a problem"))
 routes = require('../routes/index')
 users = require('../routes/users')
+
 
 mongoose = require('mongoose')
 MongoClient = require('mongodb').MongoClient
 assert = require('assert')
 ObjectId = require('mongodb').ObjectID
-clicolour = require('cli-color')
 # awaiting solve
 # bcrypt = require('bcrypt')
 
 # connect
+
 exports.stadaradconnect = (x) ->
   url = 'mongodb://localhost:27017/web-os'
   MongoClient.connect(url, (err, db) ->

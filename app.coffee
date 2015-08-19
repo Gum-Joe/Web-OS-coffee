@@ -1,3 +1,7 @@
+# Web-OS
+# v1.0.0
+console.log("Web-OS")
+console.log("v1.0.0 DEV")
 express = require 'express'
 path = require 'path'
 favicon = require 'serve-favicon'
@@ -13,11 +17,13 @@ passportlocal = require 'passport-local'
 passporthttp = require 'passport-http'
 
 mongoose = require 'mongoose'
+
 #MongoClient = require 'mongodb'.MongoClient  
 assert = require 'assert'
 #ObjectId = require 'mongodb'.ObjectID  
-
+#console.log(clicolour.yellowBright("Web-OS ran into a problem"))
 connect = require "./libs/connect.js"
+
 passportconfig = require "./libs/passport.js"
 # wlogger = require "./libs/wlogger.js"
 #  debuge = require "./libs/debug.js"
@@ -30,10 +36,14 @@ users = require './routes/users'
 http = require 'http'
 https = require 'https'
 
-app = express  
+app = express() 
 
 bcrypt = require 'bcryptjs'
 salt = bcrypt.genSaltSync(10)
+
+#Customs
+setup = require './libs/setup/index.js'
+errors = require './libs/error.js'
 
 logFile = fs.createWriteStream('./logs/wos.log', {flags: 'a'}) 
 
@@ -53,15 +63,16 @@ app.use(express.static(path.join(__dirname, 'bower_components')));
 app.use(express.static(path.join(__dirname, 'views')));
 app.use(logger({stream: logFile}));
 app.use(logger('stream', wlogger.logger));
-#app.use(require('morgan')({ "stream": wlogger.stream }));
+app.use(require('morgan')({ "stream": wlogger.stream }));
 wlogger.debug("Overriding 'Express' logger");
 app.use(require("morgan")("combined", { "stream": wlogger.stream }));
   
 
-userSchema = new mongoose.Schema ->
+userSchema = new mongoose.Schema({
   username: { type: String }
 , email: String
 , pwd: String
+})
 
 exits = false  
 suser = mongoose.model('usersc', userSchema)
@@ -88,12 +99,14 @@ app.use('passportconfig', passportconfig)
 port = process.env.PORT || 8080  
 
 app.listen(port, () ->
-  clicolour.cyanBright("webOS ")  + clicolour.yellowBright("startup ")  + "Running on port " + port
-  clicolour.cyanBright("webOS ")  + clicolour.yellowBright("startup ")  + "The date and time is: " + Date()
-  clicolour.cyanBright("webOS ")  + clicolour.yellowBright("startup ")  + connect.connect("Connect") 
+  #errors.bsod.throwError("TEST", "This is a test error", "ETEST")
+  console.log(clicolour.cyanBright("webOS ") + clicolour.yellowBright("startup ") + "Running on port " + port)
+  console.log(clicolour.cyanBright("webOS ") + clicolour.yellowBright("startup ") + "The date and time is: " + Date())
+  console.log(clicolour.cyanBright("webOS ") + clicolour.yellowBright("startup ") + connect.connect("Connect")) 
+  setup.checks.instances.checkInstances("ok")
 ) 
 # HTTPS
-httpsserver = https.createServer  options
+#httpsserver = https.createServer  options
 # Turn on HTTPS
 # httpsserver.on  'request', app
 # httpsserver.listen  6060, function  {

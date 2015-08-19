@@ -51,3 +51,8 @@ private
 compile
 compiles
 compiled
+*.js
+libs/*.js
+libs/*/*.js
+libs/*/*/*.js
+routes/*.js
